@@ -8,7 +8,7 @@ use role sysadmin;
 
 create or replace warehouse dbt_wh with warehouse_size='x-small';
 create database if not exists dbt_db;
-
+drop schema public;
 show grants on warehouse dbt_wh;
 
 grant usage on warehouse dbt_wh to role dbt_role;

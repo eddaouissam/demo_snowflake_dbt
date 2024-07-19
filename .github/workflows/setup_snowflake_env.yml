@@ -12,7 +12,7 @@ jobs:
   setup_snowflake:
     runs-on: ubuntu-latest
 
-    env:
+    env: # only these are needed for this first workflow
       SNOWSQL_PWD: ${{ secrets.SNOWFLAKE_PASSWORD }}
       SNOWSQL_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       SNOWSQL_USER: ${{ secrets.SNOWFLAKE_USERNAME }}
