@@ -54,6 +54,9 @@ jobs:
       - name: DBT debug
         run: dbt debug
 
+      - name: DBT deps
+        run: dbt deps
+
       - name: DBT test
         run: dbt test
 
@@ -100,8 +103,8 @@ jobs:
           SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
 
-      - name: DBT debug
-        run: dbt debug
+      - name: DBT deps
+        run: dbt deps
 
       - name: DBT run
         run: dbt run
