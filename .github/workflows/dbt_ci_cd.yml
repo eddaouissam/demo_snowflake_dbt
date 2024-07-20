@@ -101,6 +101,7 @@ jobs:
                 warehouse: $SNOWFLAKE_WAREHOUSE
             target: dev
           " > ~/.dbt/profiles.yml
+
       - name: DBT debug
         run: dbt debug
         env:
