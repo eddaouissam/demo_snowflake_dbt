@@ -28,7 +28,7 @@ jobs:
       - name: Set up DBT profile
         run: |
           mkdir -p ~/.dbt
-          echo "poc_sap:
+          echo "demo_snowflake_dbt:
             outputs:
               dev:
                 account: $SNOWFLAKE_ACCOUNT
