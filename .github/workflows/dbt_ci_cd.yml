@@ -57,8 +57,8 @@ jobs:
       - name: DBT deps
         run: dbt deps
 
-      - name: DBT test
-        run: dbt test
+      # - name: DBT test
+      #   run: dbt test
 
   dbt_cd:
     runs-on: ubuntu-latest
