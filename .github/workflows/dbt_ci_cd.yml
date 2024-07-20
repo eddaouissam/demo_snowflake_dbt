@@ -24,10 +24,33 @@ jobs:
       - name: Install DBT and Snowflake adapter
         run: |
           pip install dbt-core dbt-snowflake
-      - name: Set up DBT profile
+      - name: Set up dbt profile
         run: |
           mkdir -p ~/.dbt
-          echo "${{ secrets.DBT_PROFILE }}" > ~/.dbt/profiles.yml
+          echo "
+          demo_snowflake_dbt:
+            outputs:
+              dev:
+                account: $SNOWFLAKE_ACCOUNT
+                database: $SNOWFLAKE_DATABASE
+                password: $SNOWFLAKE_PASSWORD
+                role: $SNOWFLAKE_ROLE
+                schema: $SNOWFLAKE_SCHEMA
+                threads: 4
+                type: snowflake
+                user: $SNOWFLAKE_USER
+                warehouse: $SNOWFLAKE_WAREHOUSE
+            target: dev
+          " > ~/.dbt/profiles.yml
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USERNAME }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+          SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+          SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+          SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+
       - name: DBT debug
         run: dbt debug
 
@@ -50,10 +73,33 @@ jobs:
       - name: Install DBT and Snowflake adapter
         run: |
           pip install dbt-core dbt-snowflake
-      - name: Set up DBT profile
+      - name: Set up dbt profile
         run: |
           mkdir -p ~/.dbt
-          echo "${{ secrets.DBT_PROFILE }}" > ~/.dbt/profiles.yml
+          echo "
+          demo_snowflake_dbt:
+            outputs:
+              dev:
+                account: $SNOWFLAKE_ACCOUNT
+                database: $SNOWFLAKE_DATABASE
+                password: $SNOWFLAKE_PASSWORD
+                role: $SNOWFLAKE_ROLE
+                schema: $SNOWFLAKE_SCHEMA
+                threads: 4
+                type: snowflake
+                user: $SNOWFLAKE_USER
+                warehouse: $SNOWFLAKE_WAREHOUSE
+            target: dev
+          " > ~/.dbt/profiles.yml
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USERNAME }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+          SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+          SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+          SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+
       - name: DBT debug
         run: dbt debug
 
