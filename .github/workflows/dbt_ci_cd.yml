@@ -81,10 +81,11 @@ jobs:
         run: |
           pip install dbt-core dbt-snowflake
 
-      - name: Set up DBT profile
+       - name: Set up dbt profile
         run: |
           mkdir -p ~/.dbt
-          echo "demo_snowflake_dbt:
+          echo "
+          dem_snowflake_dbt:
             outputs:
               dev:
                 account: $SNOWFLAKE_ACCOUNT
@@ -96,8 +97,8 @@ jobs:
                 type: snowflake
                 user: $SNOWFLAKE_USER
                 warehouse: $SNOWFLAKE_WAREHOUSE
-            target: dev" > ~/.dbt/profiles.yml
-
+            target: dev
+          " > ~/.dbt/profiles.yml
       - name: DBT debug
         run: dbt debug
         env:
