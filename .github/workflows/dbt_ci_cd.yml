@@ -24,26 +24,10 @@ jobs:
       - name: Install DBT and Snowflake adapter
         run: |
           pip install dbt-core dbt-snowflake
-
-      - name: Set up dbt profile
+      - name: Set up DBT profile
         run: |
           mkdir -p ~/.dbt
-          echo "
-          demo_snowflake_dbt:
-            outputs:
-              dev:
-                account: $SNOWFLAKE_ACCOUNT
-                database: $SNOWFLAKE_DATABASE
-                password: $SNOWFLAKE_PASSWORD
-                role: $SNOWFLAKE_ROLE
-                schema: $SNOWFLAKE_SCHEMA
-                threads: 4
-                type: snowflake
-                user: $SNOWFLAKE_USER
-                warehouse: $SNOWFLAKE_WAREHOUSE
-            target: dev
-          " > ~/.dbt/profiles.yml
-
+          echo "${{ secrets.DBT_PROFILE }}" > ~/.dbt/profiles.yml
       - name: DBT debug
         run: dbt debug
         env:
@@ -82,26 +66,10 @@ jobs:
       - name: Install DBT and Snowflake adapter
         run: |
           pip install dbt-core dbt-snowflake
-
-       - name: Set up dbt profile
+      - name: Set up DBT profile
         run: |
           mkdir -p ~/.dbt
-          echo "
-          demo_snowflake_dbt:
-            outputs:
-              dev:
-                account: $SNOWFLAKE_ACCOUNT
-                database: $SNOWFLAKE_DATABASE
-                password: $SNOWFLAKE_PASSWORD
-                role: $SNOWFLAKE_ROLE
-                schema: $SNOWFLAKE_SCHEMA
-                threads: 4
-                type: snowflake
-                user: $SNOWFLAKE_USER
-                warehouse: $SNOWFLAKE_WAREHOUSE
-            target: dev
-          " > ~/.dbt/profiles.yml
-
+          echo "${{ secrets.DBT_PROFILE }}" > ~/.dbt/profiles.yml
       - name: DBT debug
         run: dbt debug
         env:
