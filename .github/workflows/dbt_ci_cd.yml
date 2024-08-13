@@ -1,11 +1,11 @@
 name: DBT CI/CD
 
 on:
-  schedule:
-   - cron: '0 0 * * *'  # Runs everyday at midnight :) 
-  push:
-    branches:
-      - main
+#  schedule:
+#   - cron: '0 0 * * *'  # Runs everyday at midnight :) 
+#  push:
+#   branches:
+#      - main
   workflow_dispatch:
 
 jobs:
