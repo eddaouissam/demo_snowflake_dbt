@@ -16,6 +16,8 @@ grant all on database dbt_db to role dbt_role;
 
 use role dbt_role;
 
+use database dbt_db;
+
 create schema if not exists dbt_db.dbt_schema;
 
 grant all on schema DBT_SCHEMA to ROLE DBT_ROLE;
