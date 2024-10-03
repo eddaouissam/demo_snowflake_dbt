@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '.github/workflows/setup_snowflake_env.yml'
+      - 'scripts/setup_snowflake_env.sql'
   workflow_dispatch:
 
 jobs:
